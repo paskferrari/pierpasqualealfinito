@@ -296,14 +296,18 @@ export default function CVPage() {
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
             <div className="flex-shrink-0">
               <motion.div 
-                className="w-32 h-32 rounded-2xl overflow-hidden shadow-lg"
+                className="relative w-32 h-48 sm:w-36 sm:h-52 lg:w-40 lg:h-56 rounded-2xl overflow-hidden shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
+                {/* Gradient background strips */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 opacity-20"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent"></div>
+                
                 <img 
                   src={data.identity.avatarUrl} 
                   alt={data.identity.fullName}
-                  className="w-full h-full object-cover"
+                  className="relative w-full h-full object-cover object-center"
                 />
               </motion.div>
             </div>
