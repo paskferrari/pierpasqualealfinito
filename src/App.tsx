@@ -185,35 +185,19 @@ const DATA: CVData = {
   interests: ["Automazione processi", "Design sistemi UI", "Sport (tennis/padel)"],
   testimonials: [
     {
-      name: "Marco Rossi",
+      name: "Giuseppe",
       role: "CEO",
       company: "Area Finanza S.p.A.",
-      content: "Piero ha trasformato completamente i nostri processi digitali. Il CRM che ha sviluppato ha ridotto i tempi di onboarding del 35% e migliorato significativamente la qualità dei lead.",
+      content: "Pierpasquale ha trasformato completamente i nostri processi digitali. Il CRM che ha sviluppato ha ridotto i tempi di onboarding del 35% e migliorato significativamente la qualità dei lead.",
       avatar: "/media/testimonial1.jpg",
       rating: 5
     },
     {
-      name: "Laura Bianchi",
-      role: "Project Manager",
-      company: "TechSolutions",
+      name: "Mattia ",
+      role: "Art Director",
+      company: "MOVIEBOLI",
       content: "Collaborare con Piero è stato fantastico. La sua capacità di tradurre requisiti complessi in soluzioni eleganti e funzionali è impressionante. Sempre puntuale e professionale.",
       avatar: "/media/testimonial2.jpg",
-      rating: 5
-    },
-    {
-      name: "Giuseppe Verde",
-      role: "Direttore Tecnico",
-      company: "FITP",
-      content: "Durante gli Internazionali BNL d'Italia, Piero ha dimostrato eccellenti capacità organizzative e problem-solving. Un professionista affidabile in contesti ad alta pressione.",
-      avatar: "/media/testimonial3.jpg",
-      rating: 5
-    },
-    {
-      name: "Anna Neri",
-      role: "Marketing Director",
-      company: "Digital Agency",
-      content: "Le dashboard sviluppate da Piero hanno rivoluzionato il nostro modo di analizzare i dati. Interfacce intuitive e funzionalità avanzate che hanno migliorato la nostra produttività.",
-      avatar: "/media/testimonial4.jpg",
       rating: 5
     }
   ]
