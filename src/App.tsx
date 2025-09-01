@@ -40,7 +40,7 @@ const DATA: CVData = {
     fullName: "Pierpasquale Alfinito",
     role: "Responsabile IT • Developer",
     location: "Battipaglia, Campania · Italia",
-    avatarUrl: "./media/5.jpg"
+    avatarUrl: "/5.jpg"
   },
   contacts: {
     email: "pieroalfinito12@gmail.com",
@@ -284,46 +284,33 @@ export default function CVPage() {
   };
 
   return (
-    <div className="min-h-screen transition-colors duration-300 bg-gradient-to-br from-gray-50 via-gray-100 to-white">
-      <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8" ref={cvRef}>
+    <div className="min-h-screen transition-colors duration-300 bg-gradient-to-br from-gray-50 to-white">
+      <div className="max-w-6xl mx-auto p-6" ref={cvRef}>
         {/* Header */}
         <motion.div 
-          className="bg-white border-gray-100 rounded-3xl p-8 shadow-2xl border mb-8 backdrop-blur-sm"
+          className="bg-white border-gray-100 rounded-3xl p-8 shadow-xl border mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          style={{
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05)'
-          }}
         >
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-8">
-            <div className="flex-shrink-0 mx-auto lg:mx-0">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
+            <div className="flex-shrink-0">
               <motion.div 
-                className="relative w-32 h-48 sm:w-36 sm:h-52 lg:w-40 lg:h-56 rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white ring-opacity-50"
+                className="w-32 h-32 rounded-2xl overflow-hidden shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                style={{
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
-                }}
               >
-                {/* Gradient Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 opacity-20"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent"></div>
-                
                 <img 
                   src={data.identity.avatarUrl} 
                   alt={data.identity.fullName}
-                  className="relative w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover"
                 />
-                
-                {/* Decorative gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5 pointer-events-none"></div>
               </motion.div>
             </div>
             
-            <div className="flex-grow text-center lg:text-left">
+            <div className="flex-grow">
               <motion.h1 
-                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-2"
+                className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
@@ -331,7 +318,7 @@ export default function CVPage() {
                 {data.identity.fullName}
               </motion.h1>
               <motion.p 
-                className="text-lg sm:text-xl text-gray-600 mb-4"
+                className="text-xl text-gray-600 mb-4"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
@@ -340,34 +327,34 @@ export default function CVPage() {
               </motion.p>
               
               <motion.div 
-                className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm justify-center lg:justify-start"
+                className="flex flex-wrap gap-4 text-sm"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-500">
-                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="text-center lg:text-left">{data.identity.location}</span>
+                <div className="flex items-center gap-2 text-gray-500">
+                  <MapPin className="w-4 h-4" />
+                  {data.identity.location}
                 </div>
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-500">
-                  <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="text-center lg:text-left">{data.contacts.email}</span>
+                <div className="flex items-center gap-2 text-gray-500">
+                  <Mail className="w-4 h-4" />
+                  {data.contacts.email}
                 </div>
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-500">
-                  <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="text-center lg:text-left">{data.contacts.phone}</span>
+                <div className="flex items-center gap-2 text-gray-500">
+                  <Phone className="w-4 h-4" />
+                  {data.contacts.phone}
                 </div>
               </motion.div>
             </div>
             
-            <div className="flex flex-col gap-3 w-full lg:w-auto">
+            <div className="flex flex-col gap-3">
               <motion.button
                 onClick={downloadPDF}
-                className={`${accent.bg} ${accent.hover} text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-medium flex items-center justify-center gap-2 shadow-lg transition-colors text-sm sm:text-base w-full lg:w-auto`}
+                className={`${accent.bg} ${accent.hover} text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 shadow-lg transition-colors`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Download className="w-3 h-3 sm:w-4 sm:h-4" />
+                <Download className="w-4 h-4" />
                 Scarica PDF
               </motion.button>
             </div>
@@ -376,15 +363,12 @@ export default function CVPage() {
 
         {/* Navigation Tabs */}
         <motion.div 
-          className="bg-white border-gray-100 rounded-2xl p-1 sm:p-2 shadow-xl border mb-6 sm:mb-8 backdrop-blur-sm"
+          className="bg-white border-gray-100 rounded-2xl p-2 shadow-lg border mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          style={{
-            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-          }}
         >
-          <div className="flex flex-wrap gap-1 sm:gap-2 justify-center">
+          <div className="flex flex-wrap gap-2">
             {tabs.map((tab, index) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -392,7 +376,7 @@ export default function CVPage() {
                 <motion.button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-200 text-xs sm:text-sm ${
+                  className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
                     isActive 
                       ? `${accent.bg} text-white shadow-md` 
                       : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
@@ -403,7 +387,7 @@ export default function CVPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <Icon className="w-4 h-4" />
                   <span className="hidden sm:inline">{tab.label}</span>
                 </motion.button>
               );
@@ -423,10 +407,7 @@ export default function CVPage() {
             <div className="space-y-8">
               {/* Summary */}
               <motion.div 
-                className="bg-white border-gray-100 rounded-2xl p-8 shadow-xl border backdrop-blur-sm"
-                style={{
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                }}
+                className="bg-white border-gray-100 rounded-2xl p-8 shadow-lg border"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
@@ -660,10 +641,7 @@ export default function CVPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="bg-white border-gray-100 rounded-2xl p-8 shadow-xl border backdrop-blur-sm"
-                style={{
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                }}>
+              <div className="bg-white border-gray-100 rounded-2xl p-8 shadow-lg border">
                 <div className="flex items-center gap-3 mb-8">
                   <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                     <Briefcase className="w-5 h-5 text-white" />
@@ -689,10 +667,7 @@ export default function CVPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="bg-white border-gray-100 rounded-2xl p-8 shadow-xl border backdrop-blur-sm"
-                style={{
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-                }}>
+              <div className="bg-white border-gray-100 rounded-2xl p-8 shadow-lg border">
                 <div className="flex items-center gap-3 mb-8">
                   <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                     <Code className="w-5 h-5 text-white" />
@@ -720,10 +695,7 @@ export default function CVPage() {
             >
               <div className="space-y-8">
                 {/* Top Skills Section */}
-                <div className="bg-white border-gray-100 rounded-2xl p-8 shadow-xl border backdrop-blur-sm"
-      style={{
-        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-      }}>
+                <div className="bg-white border-gray-100 rounded-2xl p-8 shadow-lg border">
                   <div className="flex items-center gap-3 mb-8">
                     <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                       <Award className="w-5 h-5 text-white" />
