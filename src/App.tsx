@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -24,8 +24,6 @@ import {
   ChevronRight,
   Quote
 } from "lucide-react";
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import { CVData, Experience, Project, Testimonial } from './types';
 
 const ACCENTS = [
@@ -236,7 +234,7 @@ export default function CVPage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const accent = ACCENTS[accentIndex];
   const data = DATA;
-  const cvRef = useRef<HTMLDivElement>(null);
+
 
   const tabs = [
     { id: 'overview', label: 'Panoramica', icon: User },
@@ -248,44 +246,18 @@ export default function CVPage() {
     { id: 'testimonials', label: 'Testimonianze', icon: Quote }
   ];
 
-  const downloadPDF = async () => {
-    if (!cvRef.current) return;
-    
-    try {
-      const canvas = await html2canvas(cvRef.current, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true
-      });
-      
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const imgWidth = 210;
-      const pageHeight = 295;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
-      
-      let position = 0;
-      
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-      
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
-      
-      pdf.save(`${data.identity.fullName.replace(/\s+/g, '_')}_CV.pdf`);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-    }
+  const downloadPDF = () => {
+    const link = document.createElement('a');
+    link.href = '/pierpasquale_alfinito_cv .pdf';
+    link.download = 'pierpasquale_alfinito_cv.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <div className="min-h-screen transition-colors duration-300 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-6xl mx-auto p-6" ref={cvRef}>
+      <div className="max-w-6xl mx-auto p-6">
         {/* Header */}
         <motion.div 
           className="bg-white border-gray-100 rounded-3xl p-8 shadow-xl border mb-8"
