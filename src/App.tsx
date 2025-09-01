@@ -40,7 +40,7 @@ const DATA: CVData = {
     fullName: "Pierpasquale Alfinito",
     role: "Responsabile IT • Developer",
     location: "Battipaglia, Campania · Italia",
-    avatarUrl: "./media/5.jpg"
+    avatarUrl: "/Users/piero/Downloads/cv-web/media/5.jpg"
   },
   contacts: {
     email: "pieroalfinito12@gmail.com",
