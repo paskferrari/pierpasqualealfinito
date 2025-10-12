@@ -203,6 +203,176 @@ const DATA: CVData = {
   ]
 };
 
+const DATA_EN: CVData = {
+  identity: {
+    fullName: "Pierpasquale Alfinito",
+    role: "IT Area Manager • Developer",
+    location: "Battipaglia, Campania · Italy",
+    avatarUrl: "/5.jpg"
+  },
+  contacts: {
+    email: "pieroalfinito12@gmail.com",
+    phone: "+39 389 204 1070",
+  },
+  links: {
+    website: "",
+    linkedin: "https://www.linkedin.com/in/pierpasquale-alfinito-b8b926162",
+    github: "",
+  },
+  summary: "",
+  summaryHtml: `
+    <p><strong></strong> Young professional with a background in <strong>Economics &amp; Management</strong> and a strong passion for technology. Currently <strong>IT Area Manager</strong> at Area Finanza S.p.A., I coordinate the development and integration of digital solutions supporting financial consulting and brokerage.</p>
+
+    <ul style="margin-top:8px">
+      <li><strong>Full‑Stack Web Development</strong>: React, Node.js, Firebase, Supabase.</li>
+      <br><li><strong>IT &amp; CRM Management</strong>: Custom CRMs, automations (Make, Zapier), API integrations.</li>
+      <br><li><strong>Data Management &amp; KPI</strong>: Python/SQL/Apps Script; dynamic dashboards/reports (HTML, PDF, Google Docs).</li>
+      <br><li><strong>Digital Transformation</strong>: workflows and tools for operational efficiency.</li>
+    </ul>
+    <p style="margin-top:8px"><strong>Beyond work.</strong> I develop digital and sports projects (community, analysis and event management) with a focus on modern design and scalability.</p>
+  `,
+  highlights: [
+    "Proprietary CRM (Glide + Supabase + Make): -35% onboarding time, +22% qualified leads",
+    "ETL JSON → Supabase + automatic reports with chart of accounts mapping",
+    "React PWA with NFC for event tracking and statistics",
+  ],
+  skills: {
+    top: ["React", "Node.js", "Supabase", "PostgreSQL", "Make", "Glide", "Python", "Tailwind", "Public speaking", "Communication", "Team management"],
+    groups: {
+      "Languages & Frameworks": ["TypeScript/JavaScript", "React/Next.js", "Node/Express", "Python"],
+      "Data & Cloud": ["PostgreSQL/Supabase", "Firebase", "ETL/JSON", "Make.com"],
+      "Dev & UI": ["TailwindCSS", "Material Design", "Git/GitHub", "Basic CI/CD"],
+      "Soft skills": ["Public speaking", "Communication", "Team management"]
+    },
+  },
+  languages: [
+    { name: "Italian", level: "Native" },
+    { name: "English", level: "Professional Working" },
+    { name: "Spanish", level: "Limited Working" }
+  ],
+  experience: [
+    {
+      title: "IT Area Manager",
+      company: "Area Finanza S.p.A.",
+      period: "Nov 2024 – Present",
+      location: "Battipaglia, Campania / Rome",
+      bullets: [
+        "Coordination of digital solutions for financial consulting and brokerage",
+        "Custom CRMs, API integrations, automations (Make/Zapier)",
+        "Data extraction and analysis (Python/SQL) with dashboards and reports (HTML/PDF)",
+      ],
+      stack: ["React", "Node", "Supabase", "Make", "Google Apps Script"],
+    },
+    {
+      title: "President",
+      company: "A.S.D BOCA",
+      period: "Sep 2024 – Present",
+      location: "Battipaglia, Campania",
+      bullets: [
+        "Management and organization of a youth sports association (football)",
+        "Development of activities and local community",
+      ],
+      stack: ["Association management", "Event organization"],
+    },
+    {
+      title: "Front‑End Developer",
+      company: "Area Finanza S.r.l.",
+      period: "Jan 2022 – Nov 2024",
+      location: "Battipaglia, Campania",
+      bullets: [
+        "Websites and web apps (Next.js/Tailwind), Stripe/PayPal integrations",
+        "Basic data dashboards and analytics, deploy on Vercel",
+      ],
+      stack: ["Next.js", "Tailwind", "Stripe", "Vercel"],
+    },
+    {
+      title: "Staff — Internazionali BNL d'Italia (Tennis)",
+      company: "FITP",
+      period: "Apr–May 2023, 2024, 2025 (seasonal)",
+      location: "Rome — Foro Italico",
+      bullets: [
+        "Locker room management (Centrale/Pietrangeli) and operational support to athletes",
+        "Interface with players, coaches and staff; problem solving in an international context",
+      ],
+      stack: ["Operations", "Google Workspace"],
+    },
+    {
+      title: "Staff — BNL Italy Major Premier Padel",
+      company: "FITP",
+      period: "Jun–Jul 2023, 2024, 2025 (seasonal)",
+      location: "Rome",
+      bullets: [
+        "Organizational support and on-court operations",
+        "Shifts, logistics and coordination of daily flows",
+      ],
+      stack: ["Operations"],
+    },
+    {
+      title: "Event Management",
+      company: "Fiera Roma s.r.l.",
+      period: "Sep 2023 – Apr 2025",
+      location: "Rome",
+      bullets: [
+        "Coordination of room activities and support to exhibitors",
+        "Accreditation flows and real-time incident management",
+      ],
+      stack: ["Operations"],
+    }
+  ],
+  projects: [
+    {
+      name: "DigiFlow CRM",
+      description: "CRM platform for financial brokerage with ETL JSON → Supabase, report generation and balance sheet KPIs, Make automations.",
+      stack: ["Glide", "Supabase", "Make", "PostgreSQL"],
+      link: "#",
+    },
+    {
+      name: "PWA Event Tracker",
+      description: "React/PWA app for attendance, badges and statistics with event history.",
+      stack: ["React", "localStorage", "Chart.js"],
+      link: "#",
+    },
+    {
+      name: "Financial Dashboard",
+      description: "Interactive dashboard for financial KPI analysis with real-time charts and automatic PDF/Excel export.",
+      stack: ["Next.js", "Chart.js", "Tailwind", "jsPDF"],
+      link: "https://github.com/pieroalfinito",
+    },
+    {
+      name: "Tennis Stats API",
+      description: "REST API for managing tennis tournament statistics with JWT authentication and database integration.",
+      stack: ["Node.js", "Express", "PostgreSQL", "JWT"],
+      link: "https://github.com/pieroalfinito",
+    },
+  ],
+  education: [
+    { title: "Bachelor’s degree — Economics and Management", place: "University of Rome Tor Vergata", period: "2019 – Oct 2025" },
+    { title: "ITT Basilio Focaccia — DS1 Educational Sciences · Computer Programming", place: "Battipaglia", period: "2015 – 2019" }
+  ],
+  certifications: [
+    { name: "High school diploma", issuer: "ITT Basilio Focaccia", year: "2019" }
+  ],
+  interests: ["Process automation", "UI system design", "Sports (tennis/padel)"],
+  testimonials: [
+    {
+      name: "Giuseppe",
+      role: "CEO",
+      company: "Area Finanza S.p.A.",
+      content: "Pierpasquale completely transformed our digital processes. The CRM he developed reduced onboarding times by 35% and significantly improved lead quality.",
+      avatar: "/media/testimonial1.jpg",
+      rating: 5
+    },
+    {
+      name: "Mattia",
+      role: "Art Director",
+      company: "MOVIEBOLI",
+      content: "Working with Piero was fantastic. His ability to translate complex requirements into elegant and functional solutions is impressive. Always punctual and professional.",
+      avatar: "/media/testimonial2.jpg",
+      rating: 5
+    }
+  ]
+};
+
 // Helper function to get initials
 function initials(name: string): string {
   return name
@@ -216,18 +386,63 @@ export default function CVPage() {
   const [accentIndex, setAccentIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('overview');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  // Add locale state and translations
+  const [locale, setLocale] = useState<'it' | 'en'>(typeof window !== 'undefined' && localStorage.getItem('locale') === 'it' ? 'it' : 'en');
+  useEffect(() => { if (typeof window !== 'undefined') localStorage.setItem('locale', locale); }, [locale]);
+  const translations = {
+    it: {
+      downloadPdf: 'Scarica PDF',
+      tabs: { overview: 'Panoramica', experience: 'Esperienza', projects: 'Progetti', skills: 'Competenze', education: 'Formazione', languages: 'Lingue', testimonials: 'Testimonianze' },
+      headers: {
+        about: 'Chi sono',
+        experience: 'Esperienza Professionale',
+        projects: 'Progetti',
+        skills: 'Competenze',
+        education: 'Formazione',
+        languages: 'Lingue',
+        projectsSubtitle: 'I miei progetti più significativi',
+        skillsTitle: 'Competenze Principali',
+        skillsSubtitle: 'Le mie competenze più forti e utilizzate',
+        languagesSubtitle: 'Le lingue che parlo',
+        viewAll: 'Vedi tutto',
+        highlights: 'Risultati Chiave',
+        experienceSubtitle: 'Il mio percorso lavorativo',
+        testimonials: 'Testimonianze'
+      }
+    },
+    en: {
+      downloadPdf: 'Download PDF',
+      tabs: { overview: 'Overview', experience: 'Experience', projects: 'Projects', skills: 'Skills', education: 'Education', languages: 'Languages', testimonials: 'Testimonials' },
+      headers: {
+        about: 'About',
+        experience: 'Professional Experience',
+        projects: 'Projects',
+        skills: 'Skills',
+        education: 'Education',
+        languages: 'Languages',
+        projectsSubtitle: 'My most significant projects',
+        skillsTitle: 'Key Skills',
+        skillsSubtitle: 'My strongest and most used skills',
+        languagesSubtitle: 'Languages I speak',
+        viewAll: 'View all',
+        highlights: 'Highlights',
+        experienceSubtitle: 'My professional journey',
+        testimonials: 'Testimonials'
+      }
+    }
+  } as const;
   const accent = ACCENTS[accentIndex];
-  const data = DATA;
+  const data = useMemo(() => (locale === 'en' ? DATA_EN : DATA), [locale]);
 
 
   const tabs = [
-    { id: 'overview', label: 'Panoramica', icon: User },
-    { id: 'experience', label: 'Esperienza', icon: Briefcase },
-    { id: 'projects', label: 'Progetti', icon: Code },
-    { id: 'skills', label: 'Competenze', icon: Award },
-    { id: 'education', label: 'Formazione', icon: GraduationCap },
-    { id: 'languages', label: 'Lingue', icon: Languages },
-    { id: 'testimonials', label: 'Testimonianze', icon: Quote }
+    { id: 'overview', label: translations[locale].tabs.overview, icon: User },
+    { id: 'experience', label: translations[locale].tabs.experience, icon: Briefcase },
+    { id: 'projects', label: translations[locale].tabs.projects, icon: Code },
+    { id: 'skills', label: translations[locale].tabs.skills, icon: Award },
+    { id: 'education', label: translations[locale].tabs.education, icon: GraduationCap },
+    { id: 'languages', label: translations[locale].tabs.languages, icon: Languages },
+    { id: 'testimonials', label: translations[locale].tabs.testimonials, icon: Quote }
   ];
 
   const downloadPDF = () => {
@@ -315,8 +530,24 @@ export default function CVPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Download className="w-4 h-4" />
-                Scarica PDF
+                {translations[locale].downloadPdf}
               </motion.button>
+              <div className="flex items-center gap-2">
+                <motion.button
+                  onClick={() => setLocale('it')}
+                  className={`${locale === 'it' ? `${accent.bg} text-white` : 'bg-gray-100 text-gray-700 hover:bg-gray-200'} px-4 py-2 rounded-xl font-medium`}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  IT
+                </motion.button>
+                <motion.button
+                  onClick={() => setLocale('en')}
+                  className={`${locale === 'en' ? `${accent.bg} text-white` : 'bg-gray-100 text-gray-700 hover:bg-gray-200'} px-4 py-2 rounded-xl font-medium`}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  EN
+                </motion.button>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -348,7 +579,7 @@ export default function CVPage() {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Icon className="w-4 h-4" />
-                  <span className="hidden sm:inline">{tab.label}</span>
+                  <span className="hidden sm:inline">{(translations as any)[locale].tabs[tab.id]}</span>
                 </motion.button>
               );
             })}
@@ -376,7 +607,7 @@ export default function CVPage() {
                   <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                     <User className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">Chi sono</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.about}</h2>
                 </div>
                 <div 
                   className="prose max-w-none"
@@ -395,7 +626,7 @@ export default function CVPage() {
                   <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                     <Star className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">Risultati Chiave</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.highlights}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {data.highlights?.map((highlight: string, i: number) => (
@@ -425,14 +656,14 @@ export default function CVPage() {
                     <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                       <Briefcase className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800">Esperienza Professionale</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.experience}</h2>
                   </div>
                   <motion.button
                     onClick={() => setActiveTab('experience')}
                     className={`${accent.text} hover:${accent.bg} hover:text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2`}
                     whileHover={{ scale: 1.05 }}
                   >
-                    Vedi tutto
+                    {translations[locale].headers.viewAll}
                     <ArrowUpRight className="w-4 h-4" />
                   </motion.button>
                 </div>
@@ -455,14 +686,14 @@ export default function CVPage() {
                     <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                       <Code className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800">Progetti</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.projects}</h2>
                   </div>
                   <motion.button
                     onClick={() => setActiveTab('projects')}
                     className={`${accent.text} hover:${accent.bg} hover:text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2`}
                     whileHover={{ scale: 1.05 }}
                   >
-                    Vedi tutto
+                    {translations[locale].headers.viewAll}
                     <ArrowUpRight className="w-4 h-4" />
                   </motion.button>
                 </div>
@@ -485,14 +716,14 @@ export default function CVPage() {
                     <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                       <Award className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800">Competenze</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.skills}</h2>
                   </div>
                   <motion.button
                     onClick={() => setActiveTab('skills')}
                     className={`${accent.text} hover:${accent.bg} hover:text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2`}
                     whileHover={{ scale: 1.05 }}
                   >
-                    Vedi tutto
+                    {translations[locale].headers.viewAll}
                     <ArrowUpRight className="w-4 h-4" />
                   </motion.button>
                 </div>
@@ -524,14 +755,14 @@ export default function CVPage() {
                     <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                       <GraduationCap className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800">Formazione</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.education}</h2>
                   </div>
                   <motion.button
                     onClick={() => setActiveTab('education')}
                     className={`${accent.text} hover:${accent.bg} hover:text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2`}
                     whileHover={{ scale: 1.05 }}
                   >
-                    Vedi tutto
+                    {translations[locale].headers.viewAll}
                     <ArrowUpRight className="w-4 h-4" />
                   </motion.button>
                 </div>
@@ -564,14 +795,14 @@ export default function CVPage() {
                     <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
                       <Languages className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800">Lingue</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.languages}</h2>
                   </div>
                   <motion.button
                     onClick={() => setActiveTab('languages')}
                     className={`${accent.text} hover:${accent.bg} hover:text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2`}
                     whileHover={{ scale: 1.05 }}
                   >
-                    Vedi tutto
+                    {translations[locale].headers.viewAll}
                     <ArrowUpRight className="w-4 h-4" />
                   </motion.button>
                 </div>
@@ -607,8 +838,8 @@ export default function CVPage() {
                     <Briefcase className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-800">Esperienza Professionale</h2>
-                    <p className="text-gray-600 text-sm">Il mio percorso lavorativo</p>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.experience}</h2>
+                    <p className="text-gray-600 text-sm">{translations[locale].headers.experienceSubtitle}</p>
                   </div>
                 </div>
                 <div className="space-y-6">
@@ -633,8 +864,8 @@ export default function CVPage() {
                     <Code className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-800">Progetti</h2>
-                    <p className="text-gray-600 text-sm">I miei progetti più significativi</p>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.projects}</h2>
+                    <p className="text-gray-600 text-sm">{translations[locale].headers.projectsSubtitle}</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -661,8 +892,8 @@ export default function CVPage() {
                       <Award className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-gray-800">Competenze Principali</h2>
-                      <p className="text-gray-600 text-sm">Le mie competenze più forti e utilizzate</p>
+                      <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.skillsTitle}</h2>
+                      <p className="text-gray-600 text-sm">{translations[locale].headers.skillsSubtitle}</p>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -787,8 +1018,8 @@ export default function CVPage() {
                     <GraduationCap className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-800">Formazione</h2>
-                    <p className="text-gray-600 text-sm">Il mio percorso di studi e certificazioni</p>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.education}</h2>
+                    <p className="text-gray-600 text-sm">{translations[locale].headers.educationSubtitle}</p>
                   </div>
                 </div>
                 <div className="space-y-6">
@@ -836,8 +1067,8 @@ export default function CVPage() {
                     <Languages className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-800">Lingue</h2>
-                    <p className="text-gray-600 text-sm">Le lingue che parlo</p>
+                    <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.languages}</h2>
+                    <p className="text-gray-600 text-sm">{translations[locale].headers.languagesSubtitle}</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -962,7 +1193,7 @@ function ExperienceCard({ exp, accent }: { exp: Experience; accent: any }) {
             <Quote className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-800">Testimonianze</h2>
+            <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.testimonials}</h2>
             <p className="text-gray-600 text-sm">Cosa dicono di me</p>
           </div>
         </div>
