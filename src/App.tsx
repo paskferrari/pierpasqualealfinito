@@ -407,6 +407,7 @@ export default function CVPage() {
         viewAll: 'Vedi tutto',
         highlights: 'Risultati Chiave',
         experienceSubtitle: 'Il mio percorso lavorativo',
+        educationSubtitle: 'Il mio percorso formativo',
         testimonials: 'Testimonianze'
       }
     },
@@ -427,6 +428,7 @@ export default function CVPage() {
         viewAll: 'View all',
         highlights: 'Highlights',
         experienceSubtitle: 'My professional journey',
+        educationSubtitle: 'My academic background',
         testimonials: 'Testimonials'
       }
     }
@@ -1097,7 +1099,7 @@ export default function CVPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <TestimonialsSection testimonials={data.testimonials || []} accent={accent} currentTestimonial={currentTestimonial} setCurrentTestimonial={setCurrentTestimonial} />
+              <TestimonialsSection testimonials={data.testimonials || []} accent={accent} currentTestimonial={currentTestimonial} setCurrentTestimonial={setCurrentTestimonial} title={translations[locale].headers.testimonials} subtitle={locale === 'en' ? 'What people say about me' : 'Cosa dicono di me'} />
             </motion.div>
           )}
         </motion.div>
@@ -1167,118 +1169,120 @@ function ExperienceCard({ exp, accent }: { exp: Experience; accent: any }) {
   );
 }
 
-  function TestimonialsSection({ testimonials, accent, currentTestimonial, setCurrentTestimonial }: {
-    testimonials: Testimonial[];
-    accent: any;
-    currentTestimonial: number;
-    setCurrentTestimonial: (index: number) => void;
-  }) {
-    const nextTestimonial = () => {
-      setCurrentTestimonial((currentTestimonial + 1) % testimonials.length);
-    };
+function TestimonialsSection({ testimonials, accent, currentTestimonial, setCurrentTestimonial, title, subtitle }: {
+  testimonials: Testimonial[];
+  accent: any;
+  currentTestimonial: number;
+  setCurrentTestimonial: (index: number) => void;
+  title: string;
+  subtitle: string;
+}) {
+  const nextTestimonial = () => {
+    setCurrentTestimonial((currentTestimonial + 1) % testimonials.length);
+  };
   
-    const prevTestimonial = () => {
-      setCurrentTestimonial(currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1);
-    };
+  const prevTestimonial = () => {
+    setCurrentTestimonial(currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1);
+  };
   
-    useEffect(() => {
-      const interval = setInterval(nextTestimonial, 5000);
-      return () => clearInterval(interval);
-    }, [currentTestimonial]);
+  useEffect(() => {
+    const interval = setInterval(nextTestimonial, 5000);
+    return () => clearInterval(interval);
+  }, [currentTestimonial]);
   
-    return (
-      <div className="bg-white border-gray-100 rounded-2xl p-8 shadow-lg border">
-        <div className="flex items-center gap-3 mb-8">
-          <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
-            <Quote className="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800">{translations[locale].headers.testimonials}</h2>
-            <p className="text-gray-600 text-sm">Cosa dicono di me</p>
-          </div>
+  return (
+    <div className="bg-white border-gray-100 rounded-2xl p-8 shadow-lg border">
+      <div className="flex items-center gap-3 mb-8">
+        <div className={`w-10 h-10 rounded-xl ${accent.bg} flex items-center justify-center`}>
+          <Quote className="w-5 h-5 text-white" />
         </div>
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
+          <p className="text-gray-600 text-sm">{subtitle}</p>
+        </div>
+      </div>
   
-        <div className="relative">
-          <motion.div
-            key={currentTestimonial}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <div className="bg-gray-50 border-gray-200/50 rounded-2xl p-8 border mb-6">
-              <Quote className={`w-8 h-8 ${accent.text} mx-auto mb-4`} />
-              <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                "{testimonials[currentTestimonial].content}"
-              </p>
-              <div className="flex items-center justify-center gap-1 mb-4">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className={`w-5 h-5 ${
-                      star <= testimonials[currentTestimonial].rating
-                        ? `${accent.text} fill-current`
-                        : 'text-gray-300'
-                    }`}
-                  />
-                ))}
-              </div>
-              <div className="flex items-center justify-center gap-4">
-                <div className={`w-12 h-12 rounded-full ${accent.bg} flex items-center justify-center text-white font-bold`}>
-                  {initials(testimonials[currentTestimonial].name)}
-                </div>
-                <div className="text-left">
-                  <h4 className="font-bold text-gray-800">
-                    {testimonials[currentTestimonial].name}
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {testimonials[currentTestimonial].role} • {testimonials[currentTestimonial].company}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-  
-          <div className="flex items-center justify-center gap-4">
-            <motion.button
-              onClick={prevTestimonial}
-              className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </motion.button>
-  
-            <div className="flex gap-2">
-              {testimonials.map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentTestimonial
-                      ? accent.bg
-                      : 'bg-gray-300'
+      <div className="relative">
+        <motion.div
+          key={currentTestimonial}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <div className="bg-gray-50 border-gray-200/50 rounded-2xl p-8 border mb-6">
+            <Quote className={`w-8 h-8 ${accent.text} mx-auto mb-4`} />
+            <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
+              "{testimonials[currentTestimonial].content}"
+            </p>
+            <div className="flex items-center justify-center gap-1 mb-4">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star
+                  key={star}
+                  className={`w-5 h-5 ${
+                    star <= testimonials[currentTestimonial].rating
+                      ? `${accent.text} fill-current`
+                      : 'text-gray-300'
                   }`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.8 }}
                 />
               ))}
             </div>
-  
-            <motion.button
-              onClick={nextTestimonial}
-              className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <ChevronRight className="w-5 h-5" />
-            </motion.button>
+            <div className="flex items-center justify-center gap-4">
+              <div className={`w-12 h-12 rounded-full ${accent.bg} flex items-center justify-center text-white font-bold`}>
+                {initials(testimonials[currentTestimonial].name)}
+              </div>
+              <div className="text-left">
+                <h4 className="font-bold text-gray-800">
+                  {testimonials[currentTestimonial].name}
+                </h4>
+                <p className="text-sm text-gray-600">
+                  {testimonials[currentTestimonial].role} • {testimonials[currentTestimonial].company}
+                </p>
+              </div>
+            </div>
           </div>
+        </motion.div>
+  
+        <div className="flex items-center justify-center gap-4">
+          <motion.button
+            onClick={prevTestimonial}
+            className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full transition-colors"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </motion.button>
+  
+          <div className="flex gap-2">
+            {testimonials.map((_, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setCurrentTestimonial(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentTestimonial
+                    ? accent.bg
+                    : 'bg-gray-300'
+                }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+              />
+            ))}
+          </div>
+  
+          <motion.button
+            onClick={nextTestimonial}
+            className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full transition-colors"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </motion.button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 function ProjectCard({ proj, accent }: { proj: Project; accent: any }) {
   return (
