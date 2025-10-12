@@ -25,6 +25,7 @@ import {
   Quote
 } from "lucide-react";
 import { CVData, Experience, Project, Testimonial } from './types';
+import { siReact, siNodedotjs, siSupabase, siPostgresql, siPython, siTailwindcss, siFirebase, siJavascript, siTypescript, siNextdotjs, siExpress, siGit, siGithub, siMaterialdesign } from 'simple-icons/icons';
 
 const ACCENTS = [
   { name: "Navy", ring: "ring-slate-700", text: "text-slate-700", bg: "bg-slate-700", hover: "hover:bg-slate-800", soft: "bg-slate-50", gradient: "from-slate-700 to-slate-800" },
@@ -382,6 +383,51 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
+function SkillIcon({ skill, accent, size = 16, className = "" }: { skill: string; accent: any; size?: number; className?: string }) {
+  const s = skill.toLowerCase();
+  const map: Record<string, any> = {
+    react: siReact,
+    'node.js': siNodedotjs,
+    node: siNodedotjs,
+    supabase: siSupabase,
+    postgresql: siPostgresql,
+    postgres: siPostgresql,
+    python: siPython,
+    tailwind: siTailwindcss,
+    tailwindcss: siTailwindcss,
+    firebase: siFirebase,
+    javascript: siJavascript,
+    typescript: siTypescript,
+    next: siNextdotjs,
+    'next.js': siNextdotjs,
+    express: siExpress,
+    git: siGit,
+    github: siGithub,
+    'material design': siMaterialdesign,
+    material: siMaterialdesign
+  };
+  let icon = map[Object.keys(map).find(k => s.includes(k)) || ''] || null;
+
+  const containerClasses = `w-6 h-6 rounded-md bg-white/80 border border-white/60 flex items-center justify-center ${className}`;
+
+  if (icon) {
+    return (
+      <div className={containerClasses} aria-hidden>
+        <svg width={size} height={size} viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>{icon.title}</title>
+          <path d={icon.path} fill={`#${icon.hex}`} />
+        </svg>
+      </div>
+    );
+  }
+  const isSoft = s.includes('public') || s.includes('comunicazione') || s.includes('communication') || s.includes('gestione') || s.includes('team');
+  const FallbackIcon = isSoft ? Heart : Code;
+  return (
+    <div className={containerClasses} aria-hidden>
+      <FallbackIcon className="w-4 h-4 text-gray-600" />
+    </div>
+  );
+}
 export default function CVPage() {
   const [accentIndex, setAccentIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('overview');
@@ -917,7 +963,10 @@ export default function CVPage() {
                           whileHover={{ y: -2 }}
                         >
                           <div className="flex items-center justify-between mb-3">
-                            <h4 className="font-semibold text-gray-800 text-sm">{skill}</h4>
+                            <div className="flex items-center gap-2">
+                              <SkillIcon skill={skill} accent={accent} />
+                              <h4 className="font-semibold text-gray-800 text-sm">{skill}</h4>
+                            </div>
                             <span className={`text-xs font-bold ${accent.text}`}>{level}%</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
@@ -976,7 +1025,10 @@ export default function CVPage() {
                               transition={{ delay: 0.3 + (0.05 * i) }}
                               whileHover={{ x: 4 }}
                             >
-                              <span className="font-medium text-gray-700">{skill}</span>
+                              <div className="flex items-center gap-2">
+                                <SkillIcon skill={skill} accent={accent} size={14} />
+                                <span className="font-medium text-gray-700">{skill}</span>
+                              </div>
                               <div className="flex gap-1">
                                 {[1, 2, 3, 4, 5].map((dot) => {
                                   const skillLevel = skill.includes('React') || skill.includes('Tailwind') ? 5 :
@@ -1297,7 +1349,7 @@ function ProjectCard({ proj, accent }: { proj: Project; accent: any }) {
           <h3 className={`text-xl font-bold text-gray-800 mb-2 group-hover:${accent.text} transition-colors`}>{proj.name}</h3>
           <p className="text-gray-600 mb-4 leading-relaxed">{proj.description}</p>
         </div>
-        {proj.link && proj.link !== '#' && (
+        {proj.link && proj.link !== '#' && !proj.link.includes('github.com') && (
           <motion.a
             href={proj.link}
             target="_blank"
