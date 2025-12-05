@@ -27,6 +27,21 @@ export default defineConfig(({ mode }) => {
         try {
           fs.writeFileSync(filePath, JSON.stringify({ url, key }), 'utf-8')
         } catch {}
+
+        try {
+          const indexPath = path.join(outDir, 'index.html')
+          const indexHtml = fs.readFileSync(indexPath, 'utf-8')
+          const targets = [
+            path.join(outDir, 'myprojects', 'index.html'),
+            path.join(outDir, 'myprojects', 'ritaverzamua', 'index.html'),
+            path.join(outDir, 'myprojects', 'ritaverzamua', 'questionario', 'index.html')
+          ]
+          targets.forEach(t => {
+            const dir = path.dirname(t)
+            if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+            fs.writeFileSync(t, indexHtml, 'utf-8')
+          })
+        } catch {}
       }
     }
   }
