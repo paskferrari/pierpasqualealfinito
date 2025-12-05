@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionario Rita Verza - Make Up Artist & Nails</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2d3436;
+            --accent: #d63031;
+            --soft-pink: #ffeef2;
+            --light-gray: #f8f9fa;
+            --border: #e1e8ed;
+            --text: #2d3436;
+            --text-light: #636e72;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #f6f6f6 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 3rem 1.5rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+            background-size: 60px 60px;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        .intro {
+            padding: 2rem 2.5rem;
+            background: var(--soft-pink);
+            border-bottom: 1px solid var(--border);
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .intro strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .content {
+            padding: 2rem 2.5rem 3rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            animation: slideIn 0.5s ease-out backwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.15s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.25s; }
+        .section:nth-child(5) { animation-delay: 0.3s; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .question {
+            margin-bottom: 1.5rem;
+        }
+
+        .question-label {
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .question-hint {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            background: var(--light-gray);
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(214, 48, 49, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+            line-height: 1.6;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #856404;
+        }
+
+        .note strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #856404;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.75rem 0;
+        }
+
+        ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            font-size: 0.88rem;
+            color: var(--text-light);
+        }
+
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .footer {
+            background: var(--light-gray);
+            padding: 2rem 2.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-text {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-emphasis {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            .container {
+                border-radius: 12px;
+            }
+
+            .header,
+            .intro,
+            .content,
+            .footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border: 1px solid var(--border);
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Questionario Informativo</h1>
+                <div class="subtitle">Rita Verza Make Up Artist & Nails</div>
+            </div>
+        </div>
+
+        <div class="intro">
+            <strong>Gentile Rita,</strong> per creare un'app di prenotazione servizi e una landing page che rispecchino al meglio la tua attività, abbiamo bisogno di alcune informazioni specifiche. Ti preghiamo di compilare il seguente questionario con la massima precisione possibile.
+        </div>
+
+        
+
+        <form id="questionario" class="content">
+            <div class="section">
+                <h2 class="section-title">1. Informazioni Generali</h2>
+                
+                <div class="question">
+                    <label class="question-label">Nome completo dell'attività</label>
+                    <input name="nome_attivita" type="text" placeholder="Es. Rita Verza Make Up Studio">
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Telefono e email di contatto</label>
+                    <input name="contatti" type="text" placeholder="Telefono e email">
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Profili social attivi</label>
+                    <span class="question-hint">Instagram, Facebook, TikTok, etc.</span>
+                    <textarea name="social" placeholder="Link ai profili social"></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">2. Descrizione dei Servizi</h2>
+                
+                <div class="question">
+                    <label class="question-label">Quali servizi di make-up offri?</label>
+                    <span class="question-hint">Es. trucco sposa, trucco serata, trucco fotografico, corsi di make-up, etc.</span>
+                    <textarea name="servizi_makeup" placeholder="Descrivi i servizi make-up"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Quali servizi nail offri?</label>
+                    <span class="question-hint">Es. manicure, pedicure, ricostruzione unghie, nail art, gel, semipermanente, etc.</span>
+                    <textarea name="servizi_nail" placeholder="Descrivi i servizi nail"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Hai servizi premium o pacchetti speciali?</label>
+                    <span class="question-hint">Es. pacchetto sposa completo, abbonamenti, etc.</span>
+                    <textarea name="servizi_premium" placeholder="Descrivi pacchetti e servizi premium"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Offri servizi a domicilio o solo in sede?</label>
+                    <input name="modalita_servizi" type="text" placeholder="A domicilio / In sede / Entrambi">
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Durata media di ciascun servizio</label>
+                    <textarea name="durata_media" placeholder="Es. Trucco sposa: 90 minuti, Manicure: 45 minuti, etc."></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Fascia di prezzo per ogni servizio</label>
+                    <textarea name="prezzi" placeholder="Es. Trucco sposa: 80-120€, Ricostruzione unghie: 40-60€, etc."></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">3. Target e Posizionamento</h2>
+                
+                <div class="question">
+                    <label class="question-label">Chi è il tuo cliente ideale?</label>
+                    <span class="question-hint">Età, genere, occasioni, stile di vita</span>
+                    <textarea name="cliente_ideale" placeholder="Descrivi il tuo cliente tipo"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Quali sono i tuoi punti di forza rispetto alla concorrenza?</label>
+                    <textarea name="punti_forza" placeholder="Cosa ti distingue dagli altri professionisti?"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Che tipo di immagine vuoi comunicare?</label>
+                    <span class="question-hint">Elegante, trendy, professionale, friendly, luxury, etc.</span>
+                    <input name="immagine_brand" type="text" placeholder="Stile e personalità del brand">
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Hai certificazioni o formazioni specifiche da evidenziare?</label>
+                    <textarea name="certificazioni" placeholder="Certificazioni, corsi, specializzazioni"></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">4. Progetti e Portfolio</h2>
+                
+                <div class="note">
+                    <strong>📁 Importante:</strong>
+                    Preferibilmente allegare tutto in cartelle Google Drive organizzate
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Hai un portfolio di lavori già realizzati da mostrare?</label>
+                    <span class="question-hint">Foto, video</span>
+                    <textarea name="portfolio" placeholder="Link cartella Drive o descrizione del portfolio"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Collabori con altri professionisti?</label>
+                    <span class="question-hint">Fotografi, wedding planner, saloni, etc.</span>
+                    <textarea name="collaborazioni" placeholder="Descrivi le tue collaborazioni"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Hai partecipato a eventi particolari o progetti rilevanti?</label>
+                    <textarea name="eventi" placeholder="Eventi, sfilate, shooting, etc."></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Testimonianze o recensioni dei clienti da includere?</label>
+                    <textarea name="recensioni" placeholder="Recensioni, feedback, testimonianze"></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">5. Funzionalità App di Prenotazione</h2>
+                
+                <div class="question">
+                    <label class="question-label">Sistema di prenotazione desiderato</label>
+                    <span class="question-hint">Calendario in tempo reale, conferma automatica, reminder via SMS/email?</span>
+                    <textarea name="prenotazione" placeholder="Descrivi le funzionalità che desideri"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Gestione appuntamenti</label>
+                    <span class="question-hint">Vuoi poter bloccare orari, gestire pause, giorni di chiusura?</span>
+                    <textarea name="gestione_appuntamenti" placeholder="Funzionalità di gestione calendario"></textarea>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Vuoi un sistema di fidelizzazione?</label>
+                    <span class="question-hint">Punti, Rita Card, Rita Points</span>
+                    <p style="margin: 0.75rem 0 0.5rem; font-size: 0.88rem; color: var(--text-light);">Servono per fidelizzare il cliente:</p>
+                    <ul>
+                        <li>Ogni tot make up o servizio = tot punti</li>
+                        <li>Ogni tot punti = servizio gratis da riscattare</li>
+                    </ul>
+                    <textarea name="fidelizzazione" placeholder="Descrivi il sistema di fidelizzazione che preferisci"></textarea>
+                </div>
+            </div>
+            <div class="section">
+                <button type="submit" id="submit" style="padding: 0.9rem 1.2rem; background: var(--primary); color: #fff; border: none; border-radius: 10px; font-weight: 700; letter-spacing: 0.4px; cursor: pointer;">Invia risposte</button>
+                <button type="button" id="retry" style="margin-left: 0.5rem; padding: 0.9rem 1.2rem; background: var(--accent); color: #fff; border: none; border-radius: 10px; font-weight: 700; letter-spacing: 0.4px; cursor: pointer;">Riprova invio coda</button>
+                <div id="status" style="margin-top: 0.75rem; color: var(--text-light); font-size: 0.92rem;"></div>
+            </div>
+        </form>
+
+        <div class="footer">
+            <p class="footer-emphasis">Grazie per la tua collaborazione!</p>
+            <p class="footer-text">Una volta compilato, ti preghiamo di reinviarci il documento.</p>
+        </div>
+    </div>
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'
+        const form = document.getElementById('questionario')
+        const statusEl = document.getElementById('status')
+        let client = null
+        try {
+          const confRes = await fetch('/supabase.json')
+          if (confRes.ok) {
+            const conf = await confRes.json()
+            if (conf.url && conf.key) client = createClient(conf.url, conf.key)
+          }
+        } catch {}
+
+        const value = (n) => { const el = document.querySelector(`[name="${n}"]`); return el ? el.value.trim() : '' }
+        const payload = () => ({
+          project: 'ritaverzamua',
+          nome_attivita: value('nome_attivita'),
+          contatti: value('contatti'),
+          social: value('social'),
+          servizi_makeup: value('servizi_makeup'),
+          servizi_nail: value('servizi_nail'),
+          servizi_premium: value('servizi_premium'),
+          modalita_servizi: value('modalita_servizi'),
+          durata_media: value('durata_media'),
+          prezzi: value('prezzi'),
+          cliente_ideale: value('cliente_ideale'),
+          punti_forza: value('punti_forza'),
+          immagine_brand: value('immagine_brand'),
+          certificazioni: value('certificazioni'),
+          portfolio: value('portfolio'),
+          collaborazioni: value('collaborazioni'),
+          eventi: value('eventi'),
+          recensioni: value('recensioni'),
+          prenotazione: value('prenotazione'),
+          gestione_appuntamenti: value('gestione_appuntamenti'),
+          fidelizzazione: value('fidelizzazione')
+        })
+
+        const queuePush = (entry) => {
+          const q = JSON.parse(localStorage.getItem('ritaverzamua_queue') || '[]')
+          q.push(entry)
+          localStorage.setItem('ritaverzamua_queue', JSON.stringify(q))
+        }
+        const queueFlush = async () => {
+          const q = JSON.parse(localStorage.getItem('ritaverzamua_queue') || '[]')
+          if (!q.length) { statusEl.textContent = 'Coda vuota.'; return }
+          if (!client) { statusEl.textContent = 'Supabase non configurato.'; return }
+          try {
+            const res = await client.from('ritaverzamua_questionario').insert(q.map(x => x.data))
+            if (res.error) throw res.error
+            localStorage.removeItem('ritaverzamua_queue')
+            statusEl.textContent = 'Coda inviata correttamente.'
+          } catch (err) {
+            statusEl.textContent = 'Errore coda: ' + (err.message || 'unknown')
+          }
+        }
+        if (form) {
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault()
+            statusEl.textContent = 'Invio in corso…'
+            const data = payload()
+            try {
+              if (!client) throw new Error('Supabase non configurato')
+              const { error } = await client.from('ritaverzamua_questionario').insert([{ ...data }])
+              if (error) throw error
+              statusEl.textContent = 'Risposte inviate correttamente.'
+              form.reset()
+            } catch (err) {
+              queuePush({ data, ts: Date.now() })
+              statusEl.textContent = 'Errore: ' + (err.message || 'unknown') + '. Salvato in coda locale.'
+              console.error(err)
+            }
+          })
+          const retry = document.getElementById('retry')
+          retry?.addEventListener('click', queueFlush)
+        }
+    </script>
+</body>
+</html>
